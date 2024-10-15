@@ -8,15 +8,11 @@ from tensorflow.keras.models import load_model
 
 # plt.show(block=False)  # Non-blocking mode
 # Load the MNIST dataset
-# (train_images, _), (_, _) = tf.keras.datasets.mnist.load_data()
 train_x = np.load("x32.npy")
 train_y = np.load("y32.npy")
 
 input_shape = (32, 32, 3)  # Input shape for the discriminator
 
-# train_images = np.load("gray.npy")
-# print(train_images.shape)
-# exit()
 train_x = train_x.reshape(train_x.shape[0],input_shape[0],input_shape[1],input_shape[2]).astype('float32')
 train_x = (train_x - 127.5) / 127.5  # Normalize the images to [-1, 1]
 
